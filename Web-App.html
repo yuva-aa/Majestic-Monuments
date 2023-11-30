@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Majestic Monuments</title>
+    <link rel="shortcut icon" href="taj-mahal-icon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>body{
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    
+    }
+
+    b{
+        color: #888;
+    }
+    p{
+        line-height: 1.15rem;
+    }
+
+
+    .footer{
+        padding: 10px 0;
+        background-color: rgb(0, 0, 0);
+        bottom: 0px;
+        width: 100%;
+        height: 85px;
+        position: fixed;
+        z-index: 2;
+    }
+    .footer .social{
+        text-align: center;
+        padding-bottom: 25px;
+        color: #ffffff;
+    }
+    .footer .social a{
+        font-size: 20px;
+        color: inherit;
+        border: 1px solid #ccc;
+        width: 40px;
+        height: 40px;
+        line-height: 38px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0 8px;
+        opacity: 0.75;
+    }
+    .footer .social a:hover{
+        opacity: 0.9;
+    }
+    .footer #design{
+        margin-top: 0;
+        padding: 0;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #fff;
+    }
+
+    .container .music-container{
+        display: flex;
+        align-items: center;
+    
+    }
+
+    
+    *{
+        margin: 0;
+        padding: 3px;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+     /* custom scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+::selection{
+  background: rgb(0,123,255,0.3);
+}
+.menu .content{
+  max-width: 1250px;
+  margin: auto;
+  padding: 0 30px;
+}
+.menu .navbar{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  z-index: 2;
+  padding: 25px 0;
+  transition: all 0.3s ease;
+  background-color: #000;
+}
+.menu .navbar.sticky{
+  background: #000000;
+  padding: 10px 0;
+  box-shadow: 0px 3px 5px 0px rgba(240, 237, 237, 0.1);
+}
+.menu .navbar .content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu .navbar .logo a{
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.menu .navbar .menu-list{
+  display: inline-flex;
+}
+
+@media (max-width: 1230px) {
+  .content{
+    padding: 0 60px;
+  }
+}
+@media (max-width: 1100px) {
+  .content{
+    padding: 0 40px;
+  }
+}
+@media (max-width: 900px) {
+  .content{
+    padding: 0 30px;
+  }
+}
+@media (max-width: 868px) {
+  .menu body.disabled{
+    overflow: hidden;
+  }
+  .menu .icon{
+    display: block;
+    color: white;
+  }
+  .menu .icon.hide{
+    display: none;
+  }
+  .menu .navbar .menu-list{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    max-width: 400px;
+    left: -100%;
+    top: 0px;
+    display: block;
+    padding: 40px 0;
+    text-align: center;
+    background: rgb(0, 0, 0);
+    transition: all 0.3s ease;
+  }
+  .menu .navbar.show .menu-list{
+    left: 0%;
+  }
+  .menu .navbar .menu-list li{
+    margin-top: 45px;
+  }
+  .menu .navbar .menu-list li a{
+    font-size: 23px;
+    margin-left: -100%;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .menu .navbar.show .menu-list li a{
+    margin-left: 0px;
+  }
+}
+@media (max-width: 380px) {
+  .menu .navbar .logo a{
+    font-size: 27px;
+  }
+}
+    
+  
+
+
+    .container{
+        position: relative;
+        width: 1100px;
+        top: 110px;
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 110px;
+    }
+    
+    .container .box{
+        position: relative;
+        width: 360px;
+        height: 400px;
+        overflow: hidden;
+        transition: 0.5s;
+    }
+    
+    .container .box:hover{
+        z-index: 1;
+        transform: scale(1.25);
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+    }
+    
+    .container .box .imgBx{
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .container .box .imgBx:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(180deg,rgb(0, 0, 0),#000000);
+        mix-blend-mode: multiply;
+        opacity: 0;
+        transition: 0.5s;
+    }
+    
+    .container .box:hover .imgBx:before{
+        opacity: 1;
+    }
+    
+    .container .box .imgBx img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .container .box .content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        padding: 20px;
+        align-items: flex-end;
+    }
+    
+    .container .box .content h2{
+        color: #fff;
+        transition: 0.5s;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        font-size: 20px;
+        transform: translateY(600px);
+    }
+    
+    .container .box:hover .content h2{
+        transform: translateY(0);
+        transition-delay: 0.6s;
+    }
+    
+    .container .box .content p{
+        color: #fff;
+        transform: translateY(500px);
+        transition: 0.5s;
+        font-size: 14px;
+    }
+    
+    .container .box:hover .content p{
+        transform: translateY(0);
+        transition-delay: 0.7s;
+    }</style>
+    
+</head>
+<body>
+
+
+    <div class="menu">
+        <nav class="navbar">
+            <div class="content">
+              <div class="logo">
+                <a href="#" style="color: #888; justify-content: center; font-size: 3.5rem;">MAJESTIC MONUMENTS</a>
+              </div>
+            </div>
+          </nav>
+          <div class="banner"></div>
+          <div class="about">
+            
+          </div>
+          <script>
+            const body = document.querySelector("body");
+            const navbar = document.querySelector(".navbar");
+            const menuBtn = document.querySelector(".menu-btn");
+            const cancelBtn = document.querySelector(".cancel-btn");
+            menuBtn.onclick = ()=>{
+              navbar.classList.add("show");
+              menuBtn.classList.add("hide");
+              body.classList.add("disabled");
+            }
+            cancelBtn.onclick = ()=>{
+              body.classList.remove("disabled");
+              navbar.classList.remove("show");
+              menuBtn.classList.remove("hide");
+            }
+            window.onscroll = ()=>{
+              this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+            }
+          </script>
+        
+    </div>
+
+
+
+
+
+    
+    <div class="container">
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://images.pexels.com/photos/6250183/pexels-photo-6250183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Taj Mahal, Agra</h2><br>
+                    <p>Discover Red Fort in Delhi which is one of the<b>Famous Places In India</b>. Meet the boss of Indian historical places,<b>Taj Mahal</b>. Explore the ultimate epitome of love, the Taj Mahal, whose grandeur remains unmatched in history and today this is one of the weekend getaways from Delhi. This opulent white marble structure was commissioned to be built in<b>1632</b>by<b>Shah Jahan</b>for his late wife Mumtaz Mahal. It took around 22 years to complete this magnificent structure that is considered one of the most famous <b>Historical Place In India.</b><b><a href="https://en.wikipedia.org/wiki/Taj_Mahal" target="_blank">More...</a></b><br> <br><b>MUST SEE :</b> Night time shows of the Taj Mahal <br>
+                        <b>BUILD BY :</b> Shah Jahan <br>
+                        <b>BUILD IN :</b> 1648</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Beautiful_Shore_Temple%2C_Mamallapuram%2C_Tamil_Nadu.jpg/1599px-Beautiful_Shore_Temple%2C_Mamallapuram%2C_Tamil_Nadu.jpg?20180926053145" width="360px" height="400px">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Mahabalipuram, Tamil Nadu</h2>
+                    <p><b>Dravidian-Style Temples</b> Dravidian-style temples dotted with innumerable sculptures are the major attractions of Mahabalipuram. The stone carvings display Pallava art and<b>Took Over 200 Years To Create Making This One</b>.
+
+                        11 temples called Mandapas lie on both sides of the hills at Mahabalipuram and these have both Dravidian style architecture as well as several Buddhist elements.<b><a href="https://en.wikipedia.org/wiki/Mamallapuram" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> Dance festivals are major tourist attractions of these Mahabalipuram temples. There is a Mamallapuram Dance Festival every year celebrated in the month of December or January.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://cdn.pixabay.com/photo/2014/07/11/22/42/qutub-minar-390651_1280.jpg" width="360px" height="400px">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Qutub Minar, Delhi</h2>
+                    <p>Regarded as the site of the first Muslim kingdom in northern India,<b>The Qutub Minar Is Monument</b>. It is one of the finest examples of Indo-Muslim architecture with its intricate red sandstone storeys. These are dotted with carvings and verses from the Quran and are mostly in Arabic and Nagari.<b>The First Mosque In India Quwwat-ul-Islam Masjid</b>is also located at the foot of the Qutub Minar.<b><a href="https://en.wikipedia.org/wiki/Qutb_Minar" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> The Decorative Light Show held every evening from 6:30 to 8 pm and the Qutub Minar Festival that is held in October/November.<br><b>BUILD BY :</b> Qitub-ud-Din Aibak<br><b>BUILD IN :</b> 1193
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://images.unsplash.com/photo-1586618754080-135516049958?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" width="360px" height="400px">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Khajuraho Temples, Madhya Pradesh</h2>
+                    <p>Khajuraho has always been thought of as the place that<b>exemplifies sensuality and eroticism</b>at its best. However this is a misrepresentation as only about 10 percent of the sculptures are sensual and the rest are common depictions. Countless sculptures depicting love, eternal grace, beauty, delicacy and the creative arts can be seen in one of the most historical places in India. A perfect amalgamation of<b>Hinduism and Jainism</b>, Khajuraho temples have carvings of cult icons, demi gods and Apsaras.<b><a href="https://en.wikipedia.org/wiki/Khajuraho_Group_of_Monuments" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> The Sound and Light Show that portrays the tale of the Chandela dynasty.<br><b>BUILD BY :</b> Chandela dynasty<br><b>BUILD IN :</b> Between 950 AD and 1050 AD
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://wikiimg.tojsiabtv.com/wikipedia/commons/thumb/1/1b/View_of_the_Virupaksha_temple_gopura_from_Hemakuta_hill_2.JPG/440px-View_of_the_Virupaksha_temple_gopura_from_Hemakuta_hill_2.JPG" width="360px" height="400px">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Virupaksha Temple Hampi, Karnataka</h2>
+                    <p><b>Hampi’s rocky outcrops, chariot structures, gopurams, elephant stables, ornate halls – all depict the tale of one of the greatest Hindu kingdoms</b>. It is believed that Lord Rama and his brother visited this historical place to search for Sita. They took the help of the two brothers Bali and Sugriv who ruled this region then.<b>This UNESCO World Heritage Site</b>is one of the most famous historical places in South India and was also the region where Vijayanagara’s main coin mint was situated.<b><a href="https://en.wikipedia.org/wiki/Virupaksha_Temple,_Hampi" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> Hampi Monuments that have carvings from the 14th century.<br><b>BUILD BY :</b> Lakkana Dandesha<br><b>BUILD IN :</b> 1570
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://c1.wallpaperflare.com/path/687/133/237/golconda-fort-architecture-hyderabad-india-b727e2847f566281e5b890f9e57aec6b.jpg" width="360px" height="400px">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Golkonda Fort, Hyderabad</h2>
+                    <p>Golkonda Fort is the icon of Hyderabad that was<b>built to protect Hyderabad from the invasion of the foreign army</b>. It is also the place where<b>mighty Kohinoor diamond</b>was placed. Everything about this fort, the grandiose architecture, its history and mystery, is alluring. You must definitely put this attraction on your itinerary when in Hyderabad.<b>INTERESTING FACT :</b> Hope Diamond, Darya-e Nur, Nur-Ul-Ain Diamond, Kohinoor, and Regent Diamond were owned by the sultans of Golconda before they moved out of India.<b><a href="https://en.wikipedia.org/wiki/Golconda" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> Light & Sound show.<br><b>BUILD BY :</b> Sultan Quli Qutb-ul-Mulk<br><b>BUILD IN :</b> 1143
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://c1.wallpaperflare.com/preview/678/43/812/india-temple-tower-colorful.jpg" width="360px" height="400px">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Meenakshi Amman Temple, Madurai</h2>
+                    <p>A historic hindu temple located on the southern bank of the Vaigai River in Madurai, this majestic temple is all about<b>seeking good vibes, positivity and wholesome spirituality</b>. It is dedicated to Parvati, known as Meenakshi, and her spouse, Shiva. Marvel at the magnificent architecture with<b>intricate carvings and admire the great beauty of this temple</b>. It is one of the most famous places in India. The intricate architecture of the place is amongst the seven wonders of the world.<b><a href="https://en.wikipedia.org/wiki/Meenakshi_Temple" target="_blank">More...</a></b> <br><br><b>MUST SEE :</b> The 14 gateways to the temple and the pillars.<br><b>BUILD BY :</b> King Kulasekara Pandya<br><b>BUILD IN :</b> 1216
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://c1.wallpaperflare.com/preview/612/855/708/belur-halebeedu-hoysala-karnataka-ancient-temples-hinduism.jpg" width="360px" height="400px">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Halebidu, Karnataka</h2>
+                    <p>Located in the Hassan district of Karnataka, it’s a collection of stunning temples with a glorious past, also known as the hidden gem of Indian architecture. If you are in search to visit some historical places in India, then Halebidu makes perfect sense. It has a magnificent temple complex representing a Hoysala architecture. It also houses a number of Jain temples and other significant structures ornament that will evoke in you a sense of spirituality.<b>INTERESTING FACT :</b> Halebid temples are slashed from the soft stone called chloritic schist.<b><a href="https://en.wikipedia.org/wiki/Hoysaleswara_Temple" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> The archaeological museum.<br><b>BUILD BY :</b> King Vishnuvardhana<br><b>BUILD IN :</b> 1121 </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://c0.wallpaperflare.com/path/264/207/579/jama-masjid-champaner-pavagadh-archaeological-park-unesco-c959a4c702f2fdf8df4231f3b0c690eb.jpg">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Champaner Pavagadh Archaeological Park, Gujarat</h2>
+                    <p>Sitting in Gujarat, Champaner Pavagadh Archaeological Park has found itself a place on the list of<b> UNESCO World Sites</b>. Sitting in the heart of Champaner and being surrounded by Pavagadh Hills, this Archaeological Park is one of the most beautiful historical places in India along with being of mythological significance. One can witness an extensive number of architectural marvels that both showcase the styles of<b>Hindu and Islamic designs</b>.<b><a href="https://en.wikipedia.org/wiki/Champaner-Pavagadh_Archaeological_Park" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> The Hindu and Islamic styles of architecture.<br><b>BUILD BY :</b> Vanraj Chavda<br><b>BUILD IN :</b> 8th century AD </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://th-i.thgim.com/public/migration_catalog/article14051675.ece/alternates/FREE_1200/27-bmrsa-elepha%2B28BM_ELEPHANTA_.jpg.jpg" width="360px" height="400px">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Elephanta Caves, Maharasthra</h2>
+                    <p>Elephanta Caves have been recognized as a UNESCO World Heritage Site. the cave depicts the rock-cut art and architecture from the medieval times in India. The caves date back to the 5th and 7th century. The caves are basically divided into two groups. The first group is the five Hindu Temples and the second group is of two Buddhist caves.<b>INTERESTING FACT :</b> The ferry ride to the caves from Mumbai is an interesting one.<b><a href="https://en.wikipedia.org/wiki/Elephanta_Caves" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> Amazing view of the Mumbai skyline.<br><b>BUILD BY :</b> Hinayana Buddhists<br><b>BUILD IN :</b> Between 5th to late 8th century AD </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://images.pexels.com/photos/8230161/pexels-photo-8230161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Great Living Chola Temples, Tamil Nadu</h2>
+                    <p>Get set to undertake an adventurous journey back in time by visiting the trio of three great Chola temples:<b>Brihadeshwara Temple at Tanjore, Airavateshwara Temple in Darasuram, and Brihadeeshwara Temple in Gangaikonda Cholapuram</b>. The three temples were built by the kings of Chola dynasty which was one of the greatest kingdoms of South India. The ones at Tanjore and Cholapuram were built in the 11th century while the one at Darasuram was built in the 12th century.<b><a href="https://en.wikipedia.org/wiki/Great_Living_Chola_Temples" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> The first royal portrait at Brihadeshwara Temple where Raja Raja Cholan can be seen paying obeisance to Lord Natarajar.<br><b>BUILD BY :</b> Emperor Rajaraja<br><b>BUILD IN :</b> 1010 </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://images.pexels.com/photos/16139383/pexels-photo-16139383/free-photo-of-india-gate-at-dusk.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">India Gates</h2>
+                    <p>This 42-meter monument is often compared with Arch de Triomphe in Paris and Arch of Constantine in Rome. Located on the Rajpath, it was designed by Edwin Lutyens.<b>Dedicated to the 82,000 soldiers of both Indian and British descent who fought in World War One and 13,300 soldiers who were martyred in the 3rd Anglo-Afghan War, it was built in 1931</b>. Every year, the Republic Day Parade is held here. It is a famous destination among both locals and tourists.<b>INTERESTING FACT :</b> It is the spot where Amar Jawan Jyoti – the eternal flame- continues to burn.<b><a href="https://en.wikipedia.org/wiki/India_Gate" target="_blank">More...</a></b> <br><br><b>MUST SEE :</b> Amar Jawan Jyoti, Children’s Park<br><b>BUILD BY :</b> Edwin Lutyens<br><b>BUILD IN :</b> 1921</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://images.pexels.com/photos/9733699/pexels-photo-9733699.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="360px" height="400px">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Victoria Memorial, Kolkata</h2>
+                    <p>The Victoria Memorial was<b>built during the peak of the British era in India</b>.The then Viceroy Lord Curzon laid down the idea of this monument but its actual<b>design was done by Sir William Emerson</b>.
+
+                    Multitudes of lush gardens, a museum filled with British memorabilia including weapons, paintings, sculptures, artifacts etc and royal portrait of the Queen are what you will find in this beautiful monument. One of the best paintings you will find here is the one by Russian artist Vasili Verestchagin.<b><a href="https://en.wikipedia.org/wiki/Victoria_Memorial,_Kolkata" target="_blank">More...</a></b>
+                        
+                    <br><br><b>MUST SEE :</b> The black bronze statue “Angel of Victory” that lies on the apex of the memorial’s dome.<br><b>BUILD BY :</b> Lord Curzon<br><b>BUILD IN :</b> 1921</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2874&q=80" width="360px" height="400px">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Konark Temple, Odisha</h2>
+                    <p>Built by the great ruler of the Ganga dynasty – King Narasimhadeva I, along with 1200 artisans, the Konark Temple is magic set in stone. Located on the coast of the Bay of Bengal,<b>this temple signifies the exquisite detailing of ancient architecture</b>and is one of the famous historical places in India. A particularly interesting feat is at the entrance of the temple where two lions are shown crushing elephants and a human body lies at the foot of the elephant.
+
+                    <b>INTERESTING FACT :</b> The 12 wheels at the base of the temple are sundials that accurately denote time.<b><a href="https://en.wikipedia.org/wiki/Konark_Sun_Temple" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> The three statues of the sun gods where the sun’s rays fall at dawn, noon and sunset.<br><b>BUILD BY :</b> Raja Narasinghs Deva I<br><b>BUILD IN :</b> 13th century BCE</p> </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://images.pexels.com/photos/17588941/pexels-photo-17588941/free-photo-of-jaipur.jpeg?auto=compress&cs=tinysrgb&w=800">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 style="color: #888;">Hawa Mahal, Jaipur</h2>
+                    <p>The<b>‘Palace of Winds’</b>or Hawa Mahal gets its name due to the fact that it looks like a honeycomb of a beehive with its<b>953 intricate windows</b>. It is also shaped like a crown as the ruler who built it, Maharaja Sawai Pratap Singh, was a major devotee of Lord Krishna. One of the popular tourist places in Jaipur, this palace is known as the<b>tallest building in the world that doesn’t have any foundation</b>. The palace is curved but still stands firm due to its pyramidal shape.<b><a href="https://en.wikipedia.org/wiki/Hawa_Mahal" target="_blank">More...</a></b><br><br><b>MUST SEE :</b> The intricate lattice work on the tiny windows.<br><b>BUILD BY :</b> Pratap Singh<br><b>BUILD IN :</b> 1799 </p>
+                </div>
+            </div>
+        </div>
+
+
+
+    
+
+
+
+
+    </div><br><br><br>
+
+
+
+    
+
+
+    <div class="footer">
+
+        <div id="design">
+            <b>DESIGNED AND DEVELOPED BY YUVAA</b>
+        </div>
+
+        
+
+
+
+        <div class="social">
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-snapchat"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+        </div>
+
+    </div>
+    
+</body>
+</html>
